@@ -29,6 +29,8 @@ In the spec(specification) file, we will see two tests validating the text that 
 
 However, if we run all of the tests, we will see we have broken another test, (`should render title in a h1 tag`). Update this test as well to make it pass. 
 
+Congratulations!! You have successfully updated the unit tests! These tests typically test functionality of a specific component within Angular. Angular also uses end to end (E2E) tests that validate, you guessed it, end to end functionality! Since this is a simple app, your E2E test is not much different then the unit test. However, it does startup and instance of the app and validate some text! Run the E2E tests through the npm plugin and see what happens. The E2E test should fail as the text you changed is no longer what the test is expecting. In a TDD shop, you normally would first, "update" an E2E test to fail with the new output or functionality you would like. Then, you would update the unit tests with the functionality you would like. Once you have a unit test that is failing for your updated functionality, you would go into the code (i.e. app.component.ts or app.component.html) and update the file to pass the unit test. Once the unit test passes you then want to have the E2E test pass. Then repeat the whole process over again with new functionality!
+
 
 Finally, if you want to change the style of the text, open the `app.component.css` file and add the following stype:
 
@@ -39,3 +41,24 @@ h1 {
   font-size: 250%;
 }
 ~~~
+
+
+There it is, your first Hello World Angular App!!
+
+## Angular File Structure
+
+To better understand what each file does, see below:
+
+app/app.component.{ts,html,css,spec.ts} - Defines the AppComponent along with the HTML template, CSS stylesheet, and a unit test. This is the root component, which will turn into the tree of nested components as the project evolves.
+
+app/app.module.ts - Defines AppModule, the root module that tells Angular how to assemble the application. Currently, it only has the app component.
+
+assets/* - A place to put images and other files you want to be copied wholesale when you build your application
+
+environments/* - A place to put one file for each environment your apps live in. These contain the configuration for rest endpoints, tokens, etc...
+
+index.html - The main HTML page that is served when someone visits your site. Most of the time you'll never need to edit it. The CLI automatically adds all js and css files when building your app so you never need to add any <script> or <link> tags here manually
+     
+karma.conf.js - Unit test configuration for the Karma test runner, used when running ng test
+
+For more information on the files, see the documentation [here](https://angular.io/guide/quickstart)
