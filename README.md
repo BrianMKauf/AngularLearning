@@ -29,7 +29,7 @@ In the spec(specification) file, we will see two tests validating the text that 
 
 However, if we run all of the tests, we will see we have broken another test, (`should render title in a h1 tag`). Update this test as well to make it pass. 
 
-Congratulations!! You have successfully updated the unit tests! These tests typically test functionality of a specific component within Angular. Angular also uses end to end (E2E) tests that validate, you guessed it, end to end functionality! Since this is a simple app, your E2E test is not much different then the unit test. However, it does startup and instance of the app and validate some text! Run the E2E tests through the npm plugin and see what happens. The E2E test should fail as the text you changed is no longer what the test is expecting. In a TDD shop, you normally would first, "update" an E2E test to fail with the new output or functionality you would like. Then, you would update the unit tests with the functionality you would like. Once you have a unit test that is failing for your updated functionality, you would go into the code (i.e. app.component.ts or app.component.html) and update the file to pass the unit test. Once the unit test passes you then want to have the E2E test pass. Then repeat the whole process over again with new functionality!
+Congratulations!! You have successfully updated the unit tests! These tests typically test functionality of a specific component within Angular. Angular also uses end to end (E2E) tests that validate, you guessed it, end to end functionality! Since this is a simple app, your E2E test is not much different then the unit test. However, it does startup and instance of the app and validate some text! Run the E2E tests through the npm plugin and see what happens. The E2E test should fail as the text you changed is no longer what the test is expecting. 
 
 
 Finally, if you want to change the style of the text, open the `app.component.css` file and add the following stype:
@@ -67,3 +67,25 @@ For more information on the files, see the documentation [here](https://angular.
 ## Angular Example Application
 
 Follow the tutorial [here](https://angular.io/tutorial/toh-pt0)
+
+Notes: 
+
+* The double braces are Angulars interpolation binding syntax, so {{title}} will get the title property.
+* [Pipes](https://angular.io/guide/pipes) are a good way to format strings, currency amounts, dates and other display data. Angular ships with several built-in pipes and you can create your own.
+* You can use the angular-cli to generate components. To do so, type `ng generate component <component-name>`
+
+### Components
+
+@Component is a decorator function that specifies the Angular metadata for the component.
+
+The CLI generated three metadata properties:
+
+selector— the component's CSS element selector
+templateUrl— the location of the component's template file.
+styleUrls— the location of the component's private CSS styles.
+
+The CSS element selector, 'app-heroes', matches the name of the HTML element that identifies this component within a parent component's template.
+
+The ngOnInit is a lifecycle hook Angular calls ngOnInit shortly after creating a component. It's a good place to put initialization logic.
+
+Always export the component class so you can import it elsewhere ... like in the AppModule.
